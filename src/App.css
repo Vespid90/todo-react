@@ -5,42 +5,132 @@
   text-align: left;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  padding: 0.5rem 1rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.card {
-  padding: 2em;
+button:hover {
+  background-color: #535bf2;
 }
 
-.read-the-docs {
-  color: #888;
+button.delete {
+  background-color: #ff4444;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+button.delete:hover {
+  background-color: #cc0000;
+}
+
+.todo-list {
+  padding: 0;
 }
 
 li {
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+h1 {
+  color: #213547;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: #213547;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2 {
+    color: #ffffff;
+  }
+
+  input[type="text"] {
+    background-color: #1a1a1a;
+    border-color: #333;
+    color: white;
+  }
+
+  li {
+    border-bottom-color: #333;
+  }
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+.delete-all-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+.delete-all-btn:hover {
+  background-color: #cc0000;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
 }

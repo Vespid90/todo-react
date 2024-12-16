@@ -1,40 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 
-function TodoList () {
-    const initialTodos = [
-        {
-            id:0,
-            name: 'My first todo',
-            status:''
-        }, {
-            id:1,
-            name: 'My second todo',
-            status:''
-        }, {
-            id:2,
-            name:'My third todo',
-            status:''
-        }];
-
-    const [todos, setTodos] = useState(initialTodos);
-    const [isChecked, setIsChecked] = useState(false);
-
-    const handleOnChange = () => {
-        setIsChecked(!isChecked);
-    };
+function TodoList({ todos, onToggleTodo, onDeleteTodo }) {
     return (
-        <>
-            <div>
-                <h2>Todos</h2>
-                <ul>
-                    {todos.map((todo) => (
-                <li key={todo.id}><input type="checkbox" onChange={handleOnChange}/>{todo.name}</li>
-                    ))}
-
-                </ul>
-            </div>
-        </>
+        <div>
+            <h2>Todos</h2>
+            <ul>
+                {todos.map((todo) => (
+                    <li key={todo.id}>
+                        <div className="todo-item">
+                            <input
+                                type="checkbox"
+                                id={todo.id}
+                                checked={todo.done}
+                                onChange={() => onToggleTodo(todo.id)}
+                            />
+                            <span className={todo.done ? 'completed' : ''}>
+                                {todo.name}
+                            </span>
+                            <button
+                                onClick={() => onDeleteTodo(todo.id)}
+                                className="delete-btn"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
-export default TodoList
+export default TodoList;
